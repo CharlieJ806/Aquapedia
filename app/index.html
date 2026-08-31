@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水族百科 · Aquapedia</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/tank.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <h1>水族百科</h1>
+    <span class="sub">Seriously Fish × LiveAquaria 多源整合 · 本地离线</span>
+  </div>
+  <div class="stats" id="stats"></div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="species" data-i18n="species">物种档案</button>
+         <button class="tab" data-tab="equipment" data-i18n="equipment">物品档案</button>
+    <button class="tab" data-tab="tank" data-i18n="tabTank">模拟鱼缸</button>
+  </nav>
+</header>
+
+<div class="toolbar">
+  <input id="q" type="search" placeholder="搜索中文名 / 学名 / 俗名，如 斗鱼、灯鱼、Betta、Apistogramma…">
+  <select id="water"></select>
+  <select id="type"></select>
+  <select id="sort"></select>
+  <button id="filter_toggle" type="button" class="filter-toggle" data-i18n="filter">筛选 ▾</button>
+</div>
+
+<div id="toolbar_sliders" class="toolbar sliders">
+  <label><span data-i18n="temp">水温</span> <input type="number" id="tmin" min="0" max="46" step="0.5" value="4"> ~ <input type="number" id="tmax" min="0" max="46" step="0.5" value="40"> °C</label>
+  <label><span data-i18n="ph">pH</span> <input type="number" id="ph_min" min="0" max="14" step="0.1" value="4"> ~ <input type="number" id="ph_max" min="0" max="14" step="0.1" value="9"></label>
+  <label><span data-i18n="size">体长</span> <input type="number" id="size_min" min="0" max="300" step="1" value="1"> ~ <input type="number" id="size_max" min="0" max="300" step="1" value="300"> cm</label>
+  <label><span data-i18n="price">价格</span> <input type="number" id="price_min" min="0" max="99999" step="1" value="0"> ~ <input type="number" id="price_max" min="0" max="99999" step="1" value="8000"> ¥</label>
+  <label class="chk"><input type="checkbox" id="has_img"> <span data-i18n="hasImg">有图片</span></label>
+  <label class="chk"><input type="checkbox" id="has_price"> <span data-i18n="hasPrice">有报价</span></label>
+  <label class="chk"><input type="checkbox" id="fav_only"> <span data-i18n="favOnly">只看收藏</span></label>
+  <button id="reset" type="button" data-i18n="reset">重置</button>
+</div>
+
+<main>
+  <div id="count" class="count"></div>
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty hidden" data-i18n="empty">没有符合条件的记录</div>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" id="modal_close">×</button>
+    <div id="modal_body"></div>
+  </div>
+</div>
+<section id="tankview" class="hidden"></section>
+
+<footer>
+  数据来源：<a href="https://www.seriouslyfish.com" target="_blank">Seriously Fish</a>（饲养档案）·
+  <a href="https://www.liveaquaria.com" target="_blank">LiveAquaria</a>（价格与商品）·
+  <a href="https://baike.baidu.com" target="_blank">百度百科</a> / <a href="https://www.inaturalist.org" target="_blank">iNaturalist</a>（中文名）
+  · 仅供个人学习研究，版权归原作者所有
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/tank.js"></script>
+</body>
+</html>
