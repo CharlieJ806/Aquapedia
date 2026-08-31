@@ -9,8 +9,16 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/manifest.webmanifest">
 <meta name="theme-color" content="#0e7490">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="assets/tank.css">
+<style>
+#splash{position:fixed;inset:0;z-index:100;background:linear-gradient(120deg,#083344,#0e7490);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+#splash .splash-icon{width:96px;height:96px;border-radius:22px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+#splash .splash-spinner{width:34px;height:34px;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:splashspin .9s linear infinite}
+#splash .splash-text{color:rgba(255,255,255,.92);font-size:15px;letter-spacing:2px}
+@keyframes splashspin{to{transform:rotate(360deg)}}
+#splash.vanish{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s,visibility .4s}
+</style>
+<link rel="stylesheet" href="assets/style.css?v=20260831">
+<link rel="stylesheet" href="assets/tank.css?v=20260831">
 </head>
 <body>
 <div id="splash">
@@ -71,7 +79,7 @@
   · 仅供个人学习研究，版权归原作者所有
 </footer>
 
-<script src="assets/app.js"></script>
-<script src="assets/tank.js"></script>
+<script src="assets/app.js?v=20260831"></script>
+<script src="assets/tank.js?v=20260831"></script>
 </body>
 </html>
