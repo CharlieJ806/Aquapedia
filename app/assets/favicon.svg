@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#083344"/>
+      <stop offset="1" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#bg)"/>
+  <!-- tail -->
+  <path d="M21 50 L3 34 L9 50 L3 66 Z" fill="#67e8f9"/>
+  <!-- body -->
+  <path d="M90 50 C90 33 70 27 52 27 C35 27 23 35 19 50 C23 65 35 73 52 73 C70 73 90 67 90 50 Z" fill="#ffffff"/>
+  <!-- dorsal fin -->
+  <path d="M47 28 L55 14 L64 28 Z" fill="#22d3ee"/>
+  <!-- pelvic fin -->
+  <path d="M50 71 L43 84 L61 75 Z" fill="#22d3ee"/>
+  <!-- eye -->
+  <circle cx="77" cy="44" r="4.5" fill="#083344"/>
+  <!-- bubbles -->
+  <circle cx="63" cy="20" r="3.2" fill="#67e8f9" opacity="0.85"/>
+  <circle cx="73" cy="13" r="2.2" fill="#67e8f9" opacity="0.6"/>
+</svg>
