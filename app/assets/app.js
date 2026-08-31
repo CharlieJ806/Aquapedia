@@ -115,12 +115,14 @@ async function init() {
     state.data.equipment = (state.data.products || []).filter((p) => p.type === "equipment" || p.type === "food");
   } catch (e) {
     $("grid").innerHTML = `<div class="empty">数据加载失败（${esc(e.message)}）。请通过本地 HTTP 服务访问，例如：<code>python -m http.server</code></div>`;
+    $("splash").classList.add("vanish");
     return;
   }
   applyLang();
   renderStats();
   bindControls();
   render();
+  $("splash").classList.add("vanish");
 }
 
 function renderStats() {
