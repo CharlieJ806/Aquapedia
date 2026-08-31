@@ -213,7 +213,11 @@
     const l = num(tank.dims.l), w = num(tank.dims.w), h = num(tank.dims.h);
     if (!l || !w || !h) { cont.innerHTML = `<div class="tank-empty">请输入长宽高尺寸</div>`; return; }
     const scale = Math.max(1.2, Math.min(560 / l, 320 / h));
-    const W = Math.round(l * scale), H = Math.round(h * scale);
+    const idealW = Math.round(l * scale), idealH = Math.round(h * scale);
+    // 自适应容器宽度（移动端不溢出，避免需手动缩放）
+    const availW = Math.max(160, cont && cont.clientWidth ? cont.clientWidth : (window.innerWidth || 360));
+    const W = Math.min(idealW, Math.round(availW));
+    const H = Math.max(48, Math.round(W * idealH / idealW));
     const level = gross > 0 ? Math.min(1, volume / gross) : 0;
     const waterH = Math.round(H * level);
     const items = tank.items;
@@ -451,6 +455,14 @@
       const tv = $("#tankview");
       if (tv) tv.classList.toggle("hidden", !isTank);
       if (isTank) renderTank();
+    });
+    // 横竖屏/窗口变化时，若鱼缸页可见则重新适配容器宽度
+    let rz = null;
+    window.addEventListener("resize", () => {
+      const tv = $("#tankview");
+      if (!tv || tv.classList.contains("hidden")) return;
+      clearTimeout(rz);
+      rz = setTimeout(renderTank, 200);
     });
   }
   init();
